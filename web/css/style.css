@@ -1,0 +1,1441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #1a1a2e;
+    background: #fafbfc;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul { list-style: none; }
+
+/* ===== 헤더 ===== */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 18px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.logo-icon { font-size: 26px; }
+
+.logo-text {
+    background: linear-gradient(135deg, #3182f6, #6c5ce7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.menu {
+    display: flex;
+    gap: 36px;
+}
+
+.menu a {
+    color: #4e5968;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3182f6;
+    transition: width 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.menu a:hover {
+    color: #3182f6;
+}
+
+.login-btn {
+    background: #3182f6;
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.login-btn:hover {
+    background: #1b64da;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(49,130,246,0.3);
+}
+
+/* ===== 히어로 ===== */
+.hero {
+    background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%);
+    padding: 100px 60px 120px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(49,130,246,0.15), transparent 70%);
+    top: -200px;
+    right: -200px;
+    border-radius: 50%;
+}
+
+.hero-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+}
+
+.badge {
+    display: inline-block;
+    background: white;
+    color: #f04452;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(240,68,82,0.15);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.hero-text h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #3182f6, #6c5ce7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #4e5968;
+    margin-bottom: 36px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 48px;
+}
+
+.btn-primary {
+    background: #3182f6;
+    color: white !important;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(49,130,246,0.3);
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(49,130,246,0.4);
+    background: #1b64da;
+}
+
+.btn-primary.big {
+    padding: 18px 44px;
+    font-size: 17px;
+}
+
+.btn-secondary {
+    background: white;
+    color: #1a1a2e;
+    border: 1px solid #e5e8eb;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: #f7f9fc;
+    border-color: #3182f6;
+    color: #3182f6;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 48px;
+}
+
+.stat h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.stat p {
+    color: #8b95a1;
+    font-size: 14px;
+}
+
+/* 떠다니는 카드 */
+.hero-card-wrap {
+    position: relative;
+    height: 480px;
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    min-width: 240px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.card-1 { top: 20px; left: 30px; z-index: 3; animation-delay: 0s; }
+.card-2 { top: 180px; right: 0; z-index: 2; animation-delay: 1.5s; }
+.card-3 { bottom: 30px; left: 80px; z-index: 1; animation-delay: 3s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4e5968;
+    margin-bottom: 12px;
+}
+
+.card-price {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.up-tag {
+    background: #fff1f0;
+    color: #f04452;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.down-tag {
+    background: #e8f3ff;
+    color: #3182f6;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.mini-chart {
+    margin-top: 14px;
+    height: 40px;
+    background: linear-gradient(180deg, rgba(240,68,82,0.15), transparent);
+    border-radius: 6px;
+    position: relative;
+}
+
+.mini-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #f04452, #ff7a8a);
+    border-radius: 2px;
+    transform: rotate(-3deg);
+}
+
+.down-chart {
+    background: linear-gradient(180deg, rgba(49,130,246,0.15), transparent);
+}
+
+.down-chart::after {
+    background: linear-gradient(90deg, #3182f6, #6daefc);
+    transform: rotate(3deg);
+}
+
+/* ===== 공통 섹션 ===== */
+section {
+    padding: 100px 60px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: #e8f3ff;
+    color: #3182f6;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    font-size: 17px;
+    color: #8b95a1;
+}
+
+/* ===== 시장 ===== */
+.market-section { background: white; }
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.stock-card {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    border: 1px solid #f1f3f5;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.stock-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: transparent;
+}
+
+.stock-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.stock-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4e5968;
+}
+
+.trend-icon { font-size: 22px; }
+
+.stock-card .price {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.stock-card .change {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.stock-card.up .change { color: #f04452; }
+.stock-card.down .change { color: #3182f6; }
+
+.chart-bar {
+    height: 6px;
+    background: #f1f3f5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s;
+}
+
+.up-fill { background: linear-gradient(90deg, #f04452, #ff7a8a); }
+.down-fill { background: linear-gradient(90deg, #3182f6, #6daefc); }
+
+/* ===== 포트폴리오 ===== */
+.portfolio-section { background: #fafbfc; }
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s;
+    border: 1px solid #f1f3f5;
+    display: block;
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.card-image {
+    position: relative;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.big-icon {
+    font-size: 80px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+    transition: transform 0.4s;
+}
+
+.portfolio-card:hover .big-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.gradient-red { background: linear-gradient(135deg, #ff6b6b, #ee5a6f); }
+.gradient-gray { background: linear-gradient(135deg, #434343, #000000); }
+.gradient-blue { background: linear-gradient(135deg, #1428a0, #4267b2); }
+.gradient-orange { background: linear-gradient(135deg, #ff8c42, #ff5e3a); }
+.gradient-navy { background: linear-gradient(135deg, #002c5f, #00aad2); }
+
+.rank-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255,255,255,0.95);
+    color: #1a1a2e;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.card-body { padding: 24px; }
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-info h3 {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.ticker {
+    background: #f1f3f5;
+    color: #4e5968;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.big-price {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.card-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    background: #f0f4ff;
+    color: #3182f6;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.more-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    border: 2px dashed #d1d6db;
+    background: transparent;
+}
+
+.more-card:hover {
+    border-color: #3182f6;
+    background: #f0f4ff;
+}
+
+.more-content {
+    text-align: center;
+    color: #8b95a1;
+}
+
+.more-icon {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.more-content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+/* ===== 뉴스 ===== */
+.news-section { background: white; }
+
+.news-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.news-item {
+    background: #fafbfc;
+    padding: 28px;
+    border-radius: 16px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid transparent;
+    display: block;
+}
+
+.news-item:hover {
+    background: white;
+    border-color: #e5e8eb;
+    transform: translateX(8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.news-category {
+    display: inline-block;
+    background: #e8f3ff;
+    color: #3182f6;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.news-category.hot {
+    background: #fff1f0;
+    color: #f04452;
+}
+
+.news-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.news-item p {
+    color: #4e5968;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.news-item .date {
+    color: #8b95a1;
+    font-size: 13px;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+    background: linear-gradient(135deg, #3182f6, #6c5ce7);
+    color: white;
+    text-align: center;
+    padding: 100px 60px;
+}
+
+.cta-content h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 32px;
+    opacity: 0.95;
+}
+
+.cta-section .btn-primary {
+    background: white;
+    color: #3182f6!important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.cta-section .btn-primary:hover {
+    background: #f0f4ff;
+}
+
+/* ===== 연락처 ===== */
+.contact-section {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 40px 24px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.contact-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-6px);
+}
+
+.contact-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.contact-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+}
+
+/* ===== 푸터 ===== */
+footer {
+    background: #0a0a1e;
+    color: white;
+    padding: 60px 60px 24px;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #b0b8c1;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+}
+
+.footer-desc {
+    color: #b0b8c1;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+footer .logo-text {
+    background: linear-gradient(135deg, #6daefc, #a29bfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-bottom {
+    max-width: 1280px;
+    margin: 24px auto 0;
+    text-align: center;
+    color: #8b95a1;
+    font-size: 14px;
+}
+
+/* ===== 모달 (CSS :target) ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    width: 90%;
+    max-width: 440px;
+    text-align: center;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.modal:target .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f3f5;
+    color: #4e5968;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: #e5e8eb;
+    transform: rotate(90deg);
+}
+
+.modal-icon {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.modal-content h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    color: #4e5968;
+    margin-bottom: 20px;
+}
+
+.modal-price {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.modal-info {
+    background: #fafbfc;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.modal-info > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    color: #4e5968;
+}
+
+.modal-info > div + div {
+    border-top: 1px solid #f1f3f5;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e8eb;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-input:focus {
+    border-color: #3182f6;
+}
+
+.modal-btn {
+    display: block;
+    width: 100%;
+    background: #3182f6;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 8px;
+    transition: all 0.2s;
+}
+
+.modal-btn:hover {
+    background: #1b64da;
+    transform: translateY(-1px);
+}
+
+.modal-sub {
+    margin-top: 20px;
+    color: #8b95a1;
+    font-size: 14px;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-card-wrap { height: 400px; }
+    .market-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    header { padding: 14px 20px; }
+    .hero, section { padding-left: 20px; padding-right: 20px; }
+    .menu { display: none; }
+    .hero-text h1 { font-size: 36px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .market-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+    .section-header h2 { font-size: 32px; }
+}
+
+/* =========================================================
+   ===== JavaScript / jQuery 기능용 추가 스타일 =====
+   ========================================================= */
+
+/* --- 헤더 우측(다크모드 토글 + 로그인) --- */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.theme-toggle {
+    background: #f1f3f5;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.25s;
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    background: #e5e8eb;
+}
+
+/* --- 스크롤 시 헤더 그림자 강조 --- */
+header.scrolled {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+/* --- 현재 보고 있는 메뉴 강조(스크롤 스파이) --- */
+.menu a.active {
+    color: #3182f6;
+}
+.menu a.active::after {
+    width: 100%;
+}
+
+/* --- 실시간 시세 변동 깜빡임 효과 --- */
+.flash-up {
+    color: #f04452 !important;
+    transition: color 0.2s;
+}
+.flash-down {
+    color: #3182f6 !important;
+    transition: color 0.2s;
+}
+
+/* --- 종목 검색창 --- */
+.search-wrap {
+    max-width: 560px;
+    margin: 0 auto 36px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 16px 20px 16px 52px;
+    border: 1px solid #e5e8eb;
+    border-radius: 14px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    background: white;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+
+.search-input:focus {
+    border-color: #3182f6;
+    box-shadow: 0 6px 20px rgba(49,130,246,0.15);
+}
+
+.no-result {
+    display: none;
+    text-align: center;
+    color: #8b95a1;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+/* --- jQuery 제어 모달 (.is-open 클래스) --- */
+.modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal.is-open .modal-content {
+    transform: scale(1);
+}
+
+/* --- 로그인 검증 메시지 --- */
+.login-msg {
+    display: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 4px 0 8px;
+}
+
+/* --- 맨 위로 가기 버튼 --- */
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: #3182f6;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 900;
+    box-shadow: 0 8px 24px rgba(49,130,246,0.4);
+    transition: all 0.25s;
+}
+#topBtn:hover {
+    background: #1b64da;
+    transform: translateY(-4px);
+}
+
+/* --- 스크롤 등장(Reveal) 애니메이션 --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   ===== 다크모드 =====
+   ========================================================= */
+body.dark-mode {
+    background: #0f1117;
+    color: #e5e8eb;
+}
+body.dark-mode header {
+    background: rgba(20, 22, 30, 0.85);
+    border-bottom-color: rgba(255,255,255,0.06);
+}
+body.dark-mode .menu a { color: #b0b8c1; }
+body.dark-mode .menu a:hover,
+body.dark-mode .menu a.active { color: #6daefc; }
+body.dark-mode .theme-toggle { background: #2a2e3a; }
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #161a2b 0%, #1a1530 100%);
+}
+body.dark-mode .hero-text p,
+body.dark-mode .stat p { color: #9aa4b2; }
+body.dark-mode .badge { background: #1c1f29; }
+body.dark-mode .floating-card,
+body.dark-mode .market-section,
+body.dark-mode .news-section {
+    background: #15171f;
+}
+body.dark-mode .portfolio-section { background: #0f1117; }
+body.dark-mode .stock-card,
+body.dark-mode .portfolio-card,
+body.dark-mode .news-item,
+body.dark-mode .modal-content,
+body.dark-mode .search-input {
+    background: #1c1f29;
+    border-color: #2a2e3a;
+    color: #e5e8eb;
+}
+body.dark-mode .stock-card h3 { color: #b0b8c1; }
+body.dark-mode .news-item p,
+body.dark-mode .modal-content p { color: #9aa4b2; }
+body.dark-mode .ticker,
+body.dark-mode .modal-info,
+body.dark-mode .modal-close { background: #2a2e3a; color: #e5e8eb; }
+body.dark-mode .modal-info > div { color: #b0b8c1; }
+body.dark-mode .modal-info > div + div { border-top-color: #2a2e3a; }
+body.dark-mode .modal-input {
+    background: #15171f;
+    border-color: #2a2e3a;
+    color: #e5e8eb;
+}
+body.dark-mode .chart-bar { background: #2a2e3a; }
+body.dark-mode .more-card { border-color: #2a2e3a; }
+body.dark-mode .section-header p { color: #9aa4b2; }
+
+/* =========================================================
+   ===== 로그인 상태 표시 + 회원가입 =====
+   ========================================================= */
+
+/* 로그인 후 헤더에 표시되는 사용자 영역 (기본 숨김) */
+.user-box {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: #3182f6;
+}
+
+.logout-btn {
+    background: #f1f3f5;
+    color: #4e5968;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.logout-btn:hover {
+    background: #e5e8eb;
+    color: #1a1a2e;
+}
+
+/* 로그인/회원가입 모달 안의 전환 링크 */
+.link-signup, .link-login {
+    color: #3182f6;
+    font-weight: 700;
+    cursor: pointer;
+}
+.link-signup:hover, .link-login:hover {
+    text-decoration: underline;
+}
+
+/* 다크모드 */
+body.dark-mode .logout-btn { background: #2a2e3a; color: #b0b8c1; }
+body.dark-mode .logout-btn:hover { background: #353a47; color: #e5e8eb; }
+
+/* =========================================================
+   ===== 종목 카드 기업 로고 =====
+   ========================================================= */
+.card-image.has-logo {
+    background: #ffffff;
+    border-bottom: 1px solid #f1f3f5;
+}
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 30px;
+    transition: transform 0.4s;
+}
+.portfolio-card:hover .logo-img {
+    transform: scale(1.08);
+}
+body.dark-mode .card-image.has-logo {
+    background: #ffffff;   /* 로고 가독성을 위해 다크모드에서도 흰 배경 유지 */
+    border-bottom-color: #2a2e3a;
+}
+
+/* =========================================================
+   ===== 국내/해외 필터 탭 =====
+   ========================================================= */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.filter-btn {
+    padding: 10px 24px;
+    border: 1px solid #e5e8eb;
+    background: white;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: inherit;
+    color: #4e5968;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.filter-btn:hover {
+    border-color: #3182f6;
+    color: #3182f6;
+}
+.filter-btn.active {
+    background: #3182f6;
+    border-color: #3182f6;
+    color: white;
+}
+body.dark-mode .filter-btn {
+    background: #1c1f29;
+    border-color: #2a2e3a;
+    color: #b0b8c1;
+}
+body.dark-mode .filter-btn.active {
+    background: #3182f6;
+    color: white;
+    border-color: #3182f6;
+}
+
+/* =========================================================
+   ===== 관심종목 ♥ 버튼 =====
+   ========================================================= */
+.like-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.92);
+    color: #f04452;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s;
+}
+.like-btn:hover {
+    transform: scale(1.15);
+    background: white;
+}
+.like-btn.liked {
+    background: #fff1f0;
+}
+
+/* 종목 상세 모달 안의 로고 */
+.modal-logo {
+    display: block;
+    max-width: 170px;
+    max-height: 64px;
+    margin: 0 auto 16px;
+    object-fit: contain;
+}
+
+/* =========================================================
+   ===== 오늘의 추천 종목 슬라이더 =====
+   ========================================================= */
+.featured {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto 40px;
+    background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%);
+    border-radius: 24px;
+    padding: 36px 72px 44px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.featured-slide {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    width: 100%;
+    max-width: 640px;
+    cursor: pointer;
+}
+.featured-logo {
+    width: 130px;
+    height: 96px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+.featured-rank {
+    display: inline-block;
+    background: #3182f6;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.featured-info h3 {
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.featured-price {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+.featured-market {
+    color: #8b95a1;
+    font-size: 13px;
+}
+.featured-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 22px;
+    font-weight: 700;
+    color: #3182f6;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.2s;
+}
+.featured-prev { left: 18px; }
+.featured-next { right: 18px; }
+.featured-btn:hover { background: #3182f6; color: #fff; }
+.featured-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+.featured-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cdd6e0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.featured-dots .dot.active {
+    background: #3182f6;
+    width: 22px;
+    border-radius: 4px;
+}
+body.dark-mode .featured {
+    background: linear-gradient(135deg, #161a2b 0%, #1a1530 100%);
+}
+body.dark-mode .featured-btn { background: #1c1f29; color: #6daefc; }
+body.dark-mode .featured-logo { background: #fff; }
+
+@media (max-width: 768px) {
+    .featured { padding: 28px 56px 40px; }
+    .featured-slide { flex-direction: column; gap: 16px; text-align: center; }
+    .featured-info h3 { justify-content: center; }
+}
+
+/* =========================================================
+   ===== 관심종목 개수 / 카드 hover 힌트 / 실시간 인기검색어 =====
+   ========================================================= */
+.like-count {
+    font-weight: 700;
+    font-size: 14px;
+    color: #f04452;
+    background: #fff1f0;
+    padding: 7px 13px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* 카드 마우스 오버 힌트 (.hover 로 .hovering 추가) */
+.card-hint {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    text-align: center;
+    color: #3182f6;
+    background: #f0f4ff;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.portfolio-card.hovering .card-hint {
+    max-height: 40px;
+    opacity: 1;
+    padding: 9px;
+}
+
+/* 실시간 인기 검색어 */
+.hot-keyword {
+    max-width: 560px;
+    margin: 0 auto 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4e5968;
+}
+
+body.dark-mode .like-count { background: #2a2e3a; color: #ff7a8a; }
+body.dark-mode .card-hint { background: #15171f; color: #6daefc; }
+body.dark-mode .hot-keyword { color: #b0b8c1; }
